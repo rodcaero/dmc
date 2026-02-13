@@ -1,0 +1,132 @@
+---
+/* src/components/LocalVideo.astro */
+interface Props {
+  src: string;
+  poster: string;
+}
+
+const { src, poster } = Astro.props;
+---
+
+<div class="video-wrapper-local js-video-wrapper">
+  
+  <video 
+    preload="none" 
+    poster={poster}
+    width="100%" 
+    height="auto"
+    class="styled-video js-video"
+  >
+    <source src={src} type="video/mp4">
+    Tu navegador no soporta video HTML5.
+  </video>
+  
+  <button class="play-btn-overlay js-play-btn" aria-label="Reproducir video">
+    <i class="fa-solid fa-play"></i>
+  </button>
+
+  <div class="video-shadow"></div>
+
+</div>
+
+<script>
+  // Lógica para manejar el botón personalizado
+  // Usamos astro:page-load por si usas transiciones de vista
+  document.addEventListener('astro:page-load', () => {
+    const wrappers = document.querySelectorAll('.js-video-wrapper');
+
+    wrappers.forEach(wrapper => {
+      const video = wrapper.querySelector('video');
+      const btn = wrapper.querySelector('.js-play-btn');
+
+      if (video && btn) {
+        // Al hacer clic en el botón gigante
+        btn.addEventListener('click', () => {
+          video.play();             // Inicia el video
+          video.controls = true;    // Activa los controles nativos (pausa, volumen, etc)
+          btn.classList.add('hidden'); // Oculta el botón gigante
+        });
+
+        // Opcional: Si el video se pausa, ¿quieres que vuelva el botón?
+        // video.addEventListener('pause', () => {
+        //   video.controls = false;
+        //   btn.classList.remove('hidden');
+        // });
+      }
+    });
+  });
+</script>
+
+<style>
+  .video-wrapper-local {
+    position: relative;
+    width: 100%;
+    border-radius: 12px;
+    aspect-ratio: 16 / 9;
+    background-color: #000;
+    overflow: hidden; /* Importante para que no se salga nada */
+    cursor: pointer;
+  }
+
+  /* Estilo del Video */
+  .styled-video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    z-index: 1;
+    position: relative;
+  }
+
+  /* --- EL BOTÓN GIGANTE --- */
+  .play-btn-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrado perfecto */
+    
+    width: 80px;  /* Tamaño del círculo */
+    height: 80px;
+    
+    background-color: rgba(230, 74, 51, 0.9); /* Rojo DMC con transparencia */
+    color: white;
+    border: 4px solid rgba(255,255,255,0.3); /* Borde sutil */
+    border-radius: 50%;
+    
+    font-size: 2rem; /* Tamaño del icono play */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 8px; /* Pequeño ajuste visual para centrar el triángulo */
+    
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 30px rgba(230, 74, 51, 0.6); /* Resplandor rojo */
+  }
+
+  /* Efecto Hover: Crece y brilla más */
+  .video-wrapper-local:hover .play-btn-overlay {
+    transform: translate(-50%, -50%) scale(1.1);
+    background-color: var(--dmc-red, #e64a33);
+    box-shadow: 0 0 50px rgba(230, 74, 51, 0.8);
+  }
+
+  /* Clase para ocultar el botón cuando inicia el video */
+  .hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(1.5); /* Efecto de expansión al desaparecer */
+  }
+
+  /* Sombra decorativa detrás */
+  .video-shadow {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.5); /* Viñeta interna */
+    pointer-events: none;
+    z-index: 5;
+    border-radius: 12px;
+  }
+</style>

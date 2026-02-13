@@ -1,0 +1,388 @@
+---
+/* src/pages/quienes-somos.astro */
+import Layout from '../layouts/Layout.astro';
+import LocalVideo from '../components/LocalVideo.astro';
+---
+
+<Layout title="DMC | Quiénes Somos">
+  
+  <section class="page-header">
+    <div class="container">
+      <h1>QUIÉNES SOMOS</h1>
+      <p class="header-subtitle">Líderes en distribución tecnológica desde 1997</p>
+    </div>
+  </section>
+
+  <section class="hero-split">
+    <div class="container grid-hero">
+      
+      <div class="hero-text-content">
+        <span class="badge-pill">Somos Mayoristas</span>
+        <h2 class="hero-title">Tu Socio Estratégico en <span class="highlight">Tecnología</span></h2>
+        
+        <div class="lead-paragraphs">
+            <p>
+              <strong>DMC S.A.</strong> opera exclusivamente como distribuidor mayorista. Nuestros contratos nos impiden la venta a usuarios finales, lo que garantiza que <strong>nunca competiremos contigo</strong>, sino que impulsaremos tu negocio.
+            </p>
+            <p>
+              Actuamos como el puente entre los fabricantes líderes mundiales y tu empresa, brindando soporte, garantías y facturación local.
+            </p>
+        </div>
+
+        <div class="hero-stats-row">
+            <div class="stat-box">
+                <i class="fa-solid fa-calendar-check stat-icon"></i>
+                <div>
+                    <span class="stat-num">+25</span>
+                    <span class="stat-desc">Años de Trayectoria</span>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <div class="hero-video-wrapper">
+         <div class="video-frame">
+            <LocalVideo 
+               src="/Dmc.mp4" 
+               poster="/DMC.jpg" 
+            />
+         </div>
+         <div class="video-backdrop"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section-trajectory">
+    <div class="container">
+        <div class="grid-trajectory">
+            
+            <div class="history-column">
+                <h3 class="column-title"><i class="fa-solid fa-history"></i> Nuestro Origen</h3>
+                <div class="history-content">
+                    <p class="highlight-paragraph">
+                        La organización nace en <strong>Julio de 1997</strong> ante la necesidad crítica de un Mayorista de Computadoras en el mercado boliviano.
+                    </p>
+                    <p>
+                        Nos consolidamos como el <strong>primer eslabón oficial</strong> entre las marcas globales y el canal local. Nuestros ejecutivos cuentan con más de 30 años de experiencia internacional en la industria, cimentando relaciones de confianza con fabricantes como HP, Lenovo, Dell y Samsung.
+                    </p>
+                </div>
+            </div>
+
+            <div class="philosophy-column">
+                <div class="philosophy-card">
+                    <div class="card-badge"><i class="fa-solid fa-gem"></i> Filosofía DMC</div>
+                    <h3>Nuestro Compromiso</h3>
+                    <p>
+                        Nuestra filosofía es ofrecer al canal productos de <strong>la mayor calidad, al mejor precio y con disponibilidad inmediata.</strong>
+                    </p>
+                    
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i class="fa-solid fa-check-circle"></i>
+                            <span>Soporte Post-Venta Real</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                            <span>Centro Autorizado de Servicio (CAS)</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span>Gestión de Garantías Locales</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+  </section>
+
+  <section class="section-dna">
+    <div class="container">
+        <div class="grid-dna">
+            <div class="dna-item">
+                <div class="dna-icon"><i class="fa-solid fa-rocket"></i></div>
+                <h4>Misión</h4>
+                <p>Proveer tecnología de punta con altos estándares de calidad, competitividad y satisfacción total pre y post venta.</p>
+            </div>
+            <div class="dna-item">
+                <div class="dna-icon"><i class="fa-solid fa-eye"></i></div>
+                <h4>Visión</h4>
+                <p>Ser la organización líder en importación y distribución TI, fortaleciendo nuestra red de canales a nivel nacional.</p>
+            </div>
+            <div class="dna-item">
+                <div class="dna-icon"><i class="fa-solid fa-bullseye"></i></div>
+                <h4>Objetivos</h4>
+                <p>Superación constante en procesos logísticos y comerciales para el beneficio directo de nuestros socios de negocios.</p>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <section class="section-infrastructure">
+    <div class="container">
+      <div class="section-header-center">
+        <h2>Nuestra Infraestructura</h2>
+        <p>Capacidad logística instalada para cubrir todo Bolivia.</p>
+      </div>
+
+      <div class="location-wrapper">
+        <div class="location-info">
+            <h3><i class="fa-solid fa-location-dot"></i> Santa Cruz (Oficina Central)</h3>
+            <span class="location-line"></span>
+        </div>
+        
+        <div class="gallery-modern">
+            <div class="gallery-card">
+                <img src="/SantaCruz/DMCSA-noche.jpg" alt="SCZ Noche">
+                <div class="overlay"><span>Vista Nocturna</span></div>
+            </div>
+            <div class="gallery-card">
+                <img src="/SantaCruz/DMCSA-oficinas.jpg" alt="SCZ Oficinas">
+                <div class="overlay"><span>Oficinas</span></div>
+            </div>
+            <div class="gallery-card">
+               <img src="/SantaCruz/DMCSA-almacen2.jpg" alt="SCZ Almacen">
+               <div class="overlay"><span>Almacén Principal</span></div>
+            </div>
+            <div class="gallery-card">
+               <img src="/SantaCruz/DMCSA-almacen3.jpg" alt="SCZ Logistica">
+               <div class="overlay"><span>Logística</span></div>
+            </div>
+        </div>
+      </div>
+      
+      <div class="location-wrapper">
+        <div class="location-info">
+            <h3><i class="fa-solid fa-location-dot"></i> Iquique</h3>
+            <span class="location-line"></span>
+        </div>
+        
+        <div class="gallery-modern">
+            <div class="gallery-card">
+                <img src="/Iquique/DMCIQQ-adelante.jpg" alt="IQQ 1">
+                <div class="overlay"><span>Fachada</span></div>
+            </div>
+            <div class="gallery-card">
+                <img src="/Iquique/DMCIQQ-adelantenoche2.jpg" alt="IQQ 2">
+                <div class="overlay"><span>Vista Nocturna</span></div>
+            </div>
+            <div class="gallery-card">
+               <img src="/Iquique/DMCIQQ-atras.jpg" alt="IQQ 3">
+               <div class="overlay"><span>Bodegas</span></div>
+            </div>
+            <div class="gallery-card">
+                <img src="/Iquique/DMCIQQ-atrascerca.jpg" alt="IQQ 4">
+                <div class="overlay"><span>Área de Carga</span></div>
+            </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* --- VARIABLES LOCALES --- */
+  :root {
+      --slate: #425563;
+      --slate-dark: #2d3b45;
+      --red: #e64a33;
+      --gray-light: #f4f6f9;
+  }
+
+  /* --- 1. HEADER --- */
+  .page-header {
+    background: var(--slate);
+    padding: 60px 0 40px;
+    text-align: center;
+    color: white;
+  }
+  .page-header h1 { font-weight: 900; letter-spacing: 2px; margin-bottom: 5px; color: var(--gray-light); }
+  .header-subtitle { color: rgba(255,255,255,0.7); font-size: 1.1rem; }
+
+  /* --- 2. HERO SPLIT --- */
+  .hero-split { padding: 80px 0; background: white; overflow: hidden; }
+  .grid-hero { 
+      display: grid; 
+      grid-template-columns: 1fr 1fr; 
+      gap: 60px; 
+      align-items: center; 
+  }
+
+  .badge-pill {
+      background: rgba(230, 74, 51, 0.1);
+      color: var(--red);
+      padding: 6px 15px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: inline-block;
+      margin-bottom: 15px;
+  }
+
+  .hero-title { font-size: 2.8rem; line-height: 1.1; color: var(--slate); margin-bottom: 25px; font-weight: 800; }
+  .highlight { color: var(--red); }
+  
+  .lead-paragraphs p { margin-bottom: 15px; color: var(--slate-dark); font-size: 1.05rem; line-height: 1.6; }
+
+  /* Stats */
+  .hero-stats-row { 
+      display: flex; 
+      gap: 30px; 
+      margin-top: 40px; 
+      padding-top: 30px; 
+      border-top: 1px solid #eee; 
+  }
+  .stat-box { display: flex; gap: 15px; align-items: center; }
+  .stat-icon { font-size: 1.8rem; color: var(--slate); }
+  .stat-num { display: block; font-size: 1.8rem; font-weight: 900; color: var(--red); line-height: 1; }
+  .stat-desc { font-size: 0.8rem; text-transform: uppercase; font-weight: 600; color: #777; }
+  .stat-divider { width: 1px; background: #ddd; height: 50px; }
+
+  /* Video Estilizado */
+  .hero-video-wrapper { position: relative; perspective: 1000px; }
+  
+  .video-frame {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.2); 
+      background: black;
+      z-index: 2;
+      /* Eliminamos aspect-ratio fijo aquí porque el LocalVideo ya lo maneja, 
+         o lo dejamos para el contenedor */
+      border: 4px solid white; 
+  }
+  
+  /* Cuadrado decorativo detrás */
+  .video-backdrop {
+      position: absolute;
+      top: 20px; right: -20px; bottom: -20px; left: 20px;
+      background: var(--slate);
+      opacity: 0.1;
+      border-radius: 12px;
+      z-index: 1;
+  }
+
+  /* --- 3. TRAYECTORIA --- */
+  .section-trajectory { padding: 80px 0; background: var(--gray-light); }
+  .grid-trajectory { 
+      display: grid; 
+      grid-template-columns: 1.2fr 0.8fr; 
+      gap: 50px; 
+      align-items: start; 
+  }
+
+  .column-title { font-size: 1.5rem; color: var(--slate); margin-bottom: 25px; border-bottom: 2px solid var(--red); display: inline-block; padding-bottom: 10px; }
+  .highlight-paragraph { font-size: 1.2rem; color: var(--slate); margin-bottom: 20px; }
+  .history-content p { margin-bottom: 20px; color: #555; text-align: justify; }
+
+  .philosophy-card {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      border-top: 5px solid var(--red);
+      position: relative;
+  }
+  
+  .card-badge {
+      position: absolute;
+      top: -15px; right: 20px;
+      background: var(--slate);
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+  }
+
+  .philosophy-card h3 { color: var(--slate); margin-bottom: 15px; }
+  .philosophy-card p { color: #666; margin-bottom: 25px; font-style: italic; }
+
+  .features-list { display: flex; flex-direction: column; gap: 15px; }
+  .feature-item { 
+      display: flex; align-items: center; gap: 10px; 
+      color: var(--slate-dark); font-weight: 600; 
+      background: var(--gray-light); padding: 10px; border-radius: 6px;
+  }
+  .feature-item i { color: var(--red); }
+
+  /* --- 4. DNA --- */
+  .section-dna { padding: 80px 0; background: white; }
+  .grid-dna { 
+      display: grid; 
+      grid-template-columns: repeat(3, 1fr); 
+      gap: 30px; 
+  }
+  .dna-item { text-align: center; padding: 20px; transition: 0.3s; }
+  .dna-item:hover { transform: translateY(-5px); }
+  .dna-icon { 
+      font-size: 2.5rem; color: var(--red); margin-bottom: 20px; 
+      background: rgba(230, 74, 51, 0.05); width: 80px; height: 80px; 
+      display: flex; align-items: center; justify-content: center; 
+      border-radius: 50%; margin-left: auto; margin-right: auto;
+  }
+  .dna-item h4 { font-size: 1.3rem; color: var(--slate); margin-bottom: 10px; text-transform: uppercase; }
+  .dna-item p { color: #777; font-size: 0.95rem; line-height: 1.6; }
+
+  /* --- 5. INFRAESTRUCTURA --- */
+  .section-infrastructure { padding: 80px 0; background: var(--gray-light); }
+  .section-header-center { text-align: center; margin-bottom: 50px; }
+  .section-header-center h2 { color: var(--slate); font-size: 2.2rem; }
+
+  .location-wrapper{ padding: 0 0 40px; }
+  .location-info { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; }
+  .location-info h3 { color: var(--slate); font-size: 1.5rem; margin: 0; }
+  .location-line { flex-grow: 1; height: 1px; background: #ddd; }
+
+  .gallery-modern {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+  }
+
+  .gallery-card {
+      position: relative;
+      height: 250px;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  .gallery-card img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.5s ease;
+  }
+
+  .gallery-card:hover img { transform: scale(1.15); }
+  
+  .overlay {
+      position: absolute;
+      bottom: 0; left: 0; width: 100%;
+      background: linear-gradient(to top, rgba(66, 85, 99, 0.9), transparent);
+      padding: 20px 10px 10px;
+      color: white;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+  }
+  
+  .gallery-card:hover .overlay { transform: translateY(0); }
+  .overlay span { font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+  /* Responsive */
+  @media (max-width: 992px) {
+      .grid-hero, .grid-trajectory { grid-template-columns: 1fr; gap: 40px; }
+      .grid-dna { grid-template-columns: 1fr; gap: 40px; }
+      .gallery-modern { grid-template-columns: 1fr 1fr; }
+      .stat-divider { display: none; }
+      .hero-stats-row { flex-direction: column; align-items: flex-start; }
+      .hero-video-wrapper { order: -1; margin-bottom: 20px; }
+  }
+</style>

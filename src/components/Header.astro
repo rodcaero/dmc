@@ -1,0 +1,271 @@
+---
+/* src/components/Header.astro */
+const pathname = Astro.url.pathname;
+
+// Función para normalizar rutas (evita errores con "/" al final)
+const currentPath = pathname === '/' ? '/' : pathname.replace(/\/$/, '');
+---
+
+<header class="header-section">
+  <div class="top-bar">
+    <div class="container top-content">
+      <div class="social-icons">
+        <a href="https://www.facebook.com/dmcsabolivia" class="icon-circle"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/company/dmc-sa-bo" class="icon-circle"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/dmcsabolivia/" class="icon-circle"><i class="fa-brands fa-instagram"></i></a>
+        <span class="divider">|</span>
+        <span class="contact-info"><i class="fa-solid fa-phone"></i> +591 3 333-4444</span>
+      </div>
+      <div class="top-links">
+        <a href="/contacto"><i class="fa-solid fa-user"></i> Zona Clientes</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-header">
+    <div class="container header-content">
+      
+      <a href="/" class="logo">
+        <img src="/DMC.jpg" alt="DMC Logo" />
+      </a>
+
+      <nav class="desktop-nav">
+        <ul>
+          <li class={currentPath === '/' ? 'active' : ''}>
+            <a href="/">Inicio</a>
+          </li>
+          <li class={currentPath === '/quienes-somos' ? 'active' : ''}>
+            <a href="/quienes-somos">Quiénes Somos</a>
+          </li>
+          <li class={currentPath === '/contacto' ? 'active' : ''}>
+            <a href="/contacto" class="btn-cta">Contacto</a>
+          </li>
+        </ul>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+    </div>
+  </div>
+
+  <div class="mobile-nav-overlay" id="mobileNav">
+    <div class="mobile-nav-content">
+      <div class="mobile-header">
+        <span class="mobile-title">Menú</span>
+        <button class="close-menu" id="closeMenu"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <ul class="mobile-links">
+        <li><a href="/" class={currentPath === '/' ? 'highlight' : ''}>Inicio</a></li>
+        <li><a href="/quienes-somos" class={currentPath === '/quienes-somos' ? 'highlight' : ''}>Quiénes Somos</a></li>
+        <li><a href="/contacto" class={currentPath === '/contacto' ? 'highlight' : ''}>contacto</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<script>
+  // CORRECCIÓN PARA EL ERROR DE "RECARGAR PÁGINA"
+  // Usamos 'astro:page-load' para que el script se ejecute cada vez que cambias de página
+  // sin necesidad de recargar el navegador.
+  
+  document.addEventListener('astro:page-load', () => {
+    const toggleBtn = document.getElementById('menuToggle');
+    const closeBtn = document.getElementById('closeMenu');
+    const mobileNav = document.getElementById('mobileNav');
+    const body = document.body;
+
+    function toggleMenu() {
+      if (mobileNav) {
+        mobileNav.classList.toggle('active');
+        if (body) body.classList.toggle('no-scroll');
+      }
+    }
+
+    // Eliminamos listeners viejos si existen para evitar duplicados (buena práctica)
+    toggleBtn?.removeEventListener('click', toggleMenu);
+    closeBtn?.removeEventListener('click', toggleMenu);
+
+    // Agregamos los nuevos listeners
+    if (toggleBtn) toggleBtn.addEventListener('click', toggleMenu);
+    if (closeBtn) closeBtn.addEventListener('click', toggleMenu);
+    
+    // Cerrar menú al hacer clic en un enlace (Mejora UX)
+    const mobileLinks = document.querySelectorAll('.mobile-links a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (mobileNav && mobileNav.classList.contains('active')) {
+          toggleMenu();
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  /* --- 1. Top Bar --- */
+  .top-bar {
+    background-color: var(--dmc-dark);
+    color: #bbb;
+    padding: 8px 0;
+    font-size: 0.85rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  
+  .top-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .icon-circle {
+    color: #bbb;
+    margin-right: 12px;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+  }
+  .icon-circle:hover { color: var(--dmc-red); }
+  
+  .divider { margin: 0 12px; opacity: 0.2; }
+  .contact-info { font-weight: 500; color: #e9ecef; letter-spacing: 0.5px; }
+  
+  .top-links a { color: #bbb; display: flex; align-items: center; gap: 6px; font-weight: 500; }
+  .top-links a:hover { color: white; }
+
+  /* --- 2. Main Header --- */
+  .main-header {
+    background: var(--white);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.04);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px; 
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    height: 100%; 
+  }
+
+  .logo img {
+    max-height: 60px; 
+    width: auto;      
+    display: block;
+  }
+
+  /* Desktop Nav */
+  .desktop-nav ul {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .desktop-nav a {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--dmc-dark);
+    text-transform: uppercase;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s;
+  }
+
+  /* LÍNEA ROJA DEBAJO DEL LINK ACTIVO */
+  .desktop-nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--dmc-red-dark);
+    transition: width 0.3s ease;
+  }
+  
+  /* Se activa si haces hover O si el padre li tiene la clase .active */
+  .desktop-nav a:hover::after,
+  .desktop-nav li.active a::after {
+    width: 100%;
+  }
+
+  .desktop-nav a:hover,
+  .desktop-nav li.active a { /* Color rojo también si está activo */
+    color: var(--dmc-red); 
+  }
+  /* --- 3. Mobile Elements --- */
+  .menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    color: var(--dmc-dark);
+    cursor: pointer;
+  }
+
+  .mobile-nav-overlay {
+    position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: rgba(0,0,0,0.5);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s;
+    z-index: 1000;
+  }
+
+  .mobile-nav-content {
+    position: absolute;
+    top: 0; right: -300px;
+    width: 280px;
+    height: 100%;
+    background: white;
+    padding: 25px;
+    transition: right 0.3s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+  }
+
+  .mobile-nav-overlay.active {
+    visibility: visible;
+    opacity: 1;
+  }
+  .mobile-nav-overlay.active .mobile-nav-content {
+    right: 0;
+  }
+
+  .mobile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+  }
+  .mobile-title { font-weight: 800; font-size: 1.2rem; color: var(--dmc-dark); }
+  .close-menu { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #999; }
+  
+  .mobile-links li { margin-bottom: 15px; }
+  .mobile-links a { display: block; font-size: 1rem; color: var(--dmc-text); font-weight: 500; padding: 5px 0; }
+  
+  .mobile-links .highlight, 
+  .mobile-links a.highlight { /* Estilo para link activo en móvil */
+      color: var(--dmc-red); font-weight: 700; 
+  }
+
+  /* Responsive Queries */
+  @media (max-width: 992px) {
+    .desktop-nav { display: none; }
+    .menu-toggle { display: block; }
+    .header-content { height: 70px; }
+    .logo img { max-height: 50px; }
+  }
+</style>

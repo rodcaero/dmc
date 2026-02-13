@@ -1,0 +1,43 @@
+---
+/* src/components/Footer.astro */
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="dmc-footer">
+  <div class="container footer-content">
+    <div class="copyright">
+      <p>&copy; {currentYear} <strong>DMC</strong>. Todos los derechos reservados.</p>
+    </div>
+    <div class="socials">
+      <a href="https://www.facebook.com/dmcsabolivia"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="https://www.linkedin.com/company/dmc-sa-bo"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="https://www.instagram.com/dmcsabolivia/" class="icon-circle"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .dmc-footer {
+    background-color: var(--dmc-dark);
+    color: #adb5bd;
+    padding: 20px 0;
+    margin-top: 40px;
+    font-size: 0.9rem;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .socials a {
+    color: white;
+    margin-left: 15px;
+    font-size: 1.1rem;
+  }
+
+  .socials a:hover {
+    color: var(--dmc-red);
+  }
+</style>

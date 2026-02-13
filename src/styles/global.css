@@ -1,0 +1,68 @@
+/* src/styles/global.css */
+:root {
+  /* --- COLORES DE IDENTIDAD DMC --- */
+  
+  /* Color Principal (Rojo) */
+  --dmc-red: #F9423A;        
+  --dmc-red-dark: #b33a27;    /* Rojo oscuro para hover/active */
+
+  /* Color Corporativo (El nuevo código que me pasaste) */
+  --dmc-slate: #425563;       /* Tu color original #425563 */
+  --dmc-slate-dark: #2d3b45;  /* Versión más oscura para contraste/hover */
+
+  /* --- Variables de Sistema --- */
+  --dmc-dark: var(--dmc-slate); /* Ahora todo lo "oscuro" usa tu color de marca */
+  --dmc-gray-bg: #f4f6f9;     
+  --dmc-border: #e9ecef;     
+  --dmc-text: #425563;        /* El texto principal ahora también usa este tono */
+  --dmc-text-muted: #6c757d; 
+  --white: #ffffff;
+
+  /* --- Variables de Diseño --- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-pill: 50px;
+  --shadow-sm: 0 2px 8px rgba(66, 85, 99, 0.1); /* Sombra con tinte azulado */
+  --shadow-md: 0 4px 12px rgba(66, 85, 99, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif; /* Tipografía limpia */
+  background-color: var(--dmc-gray-bg);
+  color: var(--dmc-text);
+  line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ocupa al menos el 100% de la altura de la pantalla */
+    margin: 0;
+}
+ main {
+        flex: 1; /* Hace que el contenido principal empuje el footer hacia abajo */
+        display: flex;
+        flex-direction: column;
+    }
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--dmc-slate-dark); /* Títulos un poco más oscuros para jerarquía */
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+ul { list-style: none; }
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
